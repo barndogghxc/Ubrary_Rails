@@ -1,5 +1,7 @@
 <h2><%= @book.title %></h2>
-<h3><%= @book.author %></h3>
+<h3>Author: <%= @book.author %></h3>
+<h4>Genre: <%= @book.genre.name %></h4>
+<h5>Synopsis:</h5>
 <p><%= @book.synopsis %></p>
 
 <% if @book.user_id == current_user.id %>

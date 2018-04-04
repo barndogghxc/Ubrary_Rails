@@ -25,9 +25,11 @@ class BooksController < ApplicationController
 	end
 
 	def edit
+	  @genres = Genre.all.map{ |g| [g.name, g.id] }
 	end
 
 	def update
+	  @book.category_id = params[:category_id]
 	  if @book.update(book_params)
 		redirect_to book_path(@book)
 	  else
