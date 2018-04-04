@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 	before_action :find_book, only: [:show, :edit, :update, :destroy]
 	
 	def index
-	  @books = Book.all.order("created_at DESC")
+	  @books = Book.all
 	end
 
 	def show
@@ -29,7 +29,7 @@ class BooksController < ApplicationController
 	end
 
 	def update
-	  @book.category_id = params[:category_id]
+	  @book.genre_id = params[:genre_id]
 	  if @book.update(book_params)
 		redirect_to book_path(@book)
 	  else
