@@ -1,4 +1,4 @@
-<h1 class="current-genre"><%= params[:genre]%> Books</h1>
+<h1 class="current-genre">All Ur Books</h1>
 
 <div class="row">
 <% @books.each do |book| %>
@@ -10,4 +10,3 @@
 <% end %>
 </div>
 
-<%= link_to "Add Book", new_book_path %>
