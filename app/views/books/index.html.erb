@@ -1,12 +1,12 @@
-<h1 class="current-genre">All Ur Books</h1>
+<h1 class="current-genre"><%= params[:genre] %> Books</h1>
 
 <div class="row">
-<% @books.each do |book| %>
-<div class="col-sm-3">
-  <a href="/books/<%= book.id %>">
-  	<%= image_tag book.book_img.url(:book_index), class: "book" %>
-  </a>
-</div>
-<% end %>
+  <% @books.each do |book| %>
+   <div class="col-sm-3">
+    <a href="/books/<%= book.id %>">
+  	  <%= image_tag book.book_img.url(:book_index), class: "book" %>
+    </a>
+   </div>
+  <% end %>
 </div>
 
