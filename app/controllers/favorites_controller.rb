@@ -1,6 +1,6 @@
-class FavoritebooksController < ApplicationController
+class FavoriteBooksController < ApplicationController
   before_action :set_book
-  
+
   def create
     if Favorite.create(favorited: @book, user: current_user)
       redirect_to @book, notice: 'book has been favorited'

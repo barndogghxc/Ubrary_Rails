@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :books do
   	resources :reviews
   end
-  resources :favorite_books, only: [:create, :destroy]
+  resources :favorite_books
   root 'books#index'
 end

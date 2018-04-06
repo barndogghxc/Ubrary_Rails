@@ -34,6 +34,22 @@ class BooksController < ApplicationController
 	  @genres = Genre.all.map{ |g| [g.name, g.id] }
 	end
 
+	def favorite
+    type = params[:type]
+    if type == "favorite"
+      current_user.favorites << @book
+      redirect_to :back, notice: 'You favorited #{@book.name}'
+
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@book)
+      redirect_to :back, notice: 'Unfavorited #{@book.name}'
+
+    else
+      # Type missing, nothing happens
+      redirect_to :back, notice: 'Nothing happened.'
+    end
+  end
+
 	def update
 	  @book.genre_id = params[:genre_id]
 	  if @book.update(book_params)

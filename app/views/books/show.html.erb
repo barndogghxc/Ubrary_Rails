@@ -8,9 +8,11 @@
     <% if user_signed_in? %>
       <%= link_to "Edit", edit_book_path(@book)%>
       <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Didnt like this book?" }%>
-      <%= link_to 'Add to favorites', favorite_books_path(book_id: @book), method: :post %>
-
+      <%- unless current_user.favorite_books.exists?(id: @book.id) -%>
+<%= link_to 'Add to favorites', favorite_books_path(book_id: @book), method: :post %>
+<%- else -%>
 <%= link_to 'Remove from favorites', favorite_book_path(@book), method: :delete %>
+<%- end -%>
     <% end %> 
   </div>  
 </div>
@@ -45,10 +47,6 @@
     </div>  
   </div>
 </div>
-
-
-
-
 
 
 
