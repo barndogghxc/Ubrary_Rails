@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   	resources :reviews
   end
   resources :favorite_books
+  get '/favorites', to: 'favorite_books#index', as: 'favorites'
   root 'books#index'
 end

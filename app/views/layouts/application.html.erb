@@ -17,6 +17,8 @@
 	  	<ul class="nav navbar-nav  navbar-right">
 	  		<li><%= link_to "Sign Up for Ubrary", new_user_registration_path %></li>
 	  		<% if user_signed_in? %>
+	  			<li><%= link_to favorite_books_path(@book), method: :delete do %> </li>
+	  			<% end %>
 	  		  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 	  		<% else %>
 	  		  <li><%= link_to "Ubrary Log In", new_user_session_path %></li>
